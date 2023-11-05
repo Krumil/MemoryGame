@@ -9,6 +9,13 @@ const Game = () => {
 	const [choiceTwo, setChoiceTwo] = useState(null);
 	const [isChecking, setIsChecking] = useState(false);
 
+	const preloadImages = imageArray => {
+		imageArray.forEach(image => {
+			const img = new Image();
+			img.src = image;
+		});
+	};
+
 	// Function to shuffle and select images
 	const shuffleImages = () => {
 		const allImages = Array.from({ length: 11 }, (_, i) => `/images/image${i + 1}.png`);
@@ -16,6 +23,8 @@ const Game = () => {
 		// Shuffle array and pick the first 10
 		const shuffled = allImages.sort(() => 0.5 - Math.random());
 		const selectedImages = shuffled.slice(0, 10);
+
+		preloadImages(selectedImages);
 
 		return selectedImages;
 	};
@@ -99,7 +108,7 @@ const Game = () => {
 
 	return (
 		<div className='game'>
-			<h1>Memory Game</h1>
+			<h1>Pictoria with Vittoria</h1>
 			<div className='card-grid'>
 				{cards.map(card => (
 					<Card

@@ -1,18 +1,12 @@
 import React from "react";
 
-const Card = ({ id, flipped, handleClick, image }) => {
-	const onClick = () => {
-		if (!flipped) {
-			handleClick(id);
-		}
-	};
-
+// Inside your Card component
+const Card = ({ id, flipped, handleClick, image, className }) => {
 	return (
-		<div className={`card ${flipped ? "flipped" : ""}`} onClick={onClick}>
-			<div className='card-front'>
-				<img src={image} alt='Card front' />
-			</div>
-			<div className='card-back'></div>
+		<div
+			className={`card ${flipped ? "flipped" : ""} ${className}`} // Apply the className here
+			onClick={() => handleClick(id)}>
+			<img src={image} alt='Card' />
 		</div>
 	);
 };
