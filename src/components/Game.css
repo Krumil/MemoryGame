@@ -1,5 +1,6 @@
 .game {
 	text-align: center;
+	padding: 10px;
 }
 
 .card-grid {
@@ -11,7 +12,7 @@
 }
 
 /* Tablet layout with 4 columns */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 	.card-grid {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -20,7 +21,7 @@
 /* Phone layout with 2 columns, for a smaller screen */
 @media screen and (max-width: 480px) {
 	.card-grid {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
