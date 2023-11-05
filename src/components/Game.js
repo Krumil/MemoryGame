@@ -17,20 +17,21 @@ const Game = () => {
 	};
 
 	// Function to shuffle and select images
-	const shuffleImages = () => {
-		const allImages = Array.from({ length: 11 }, (_, i) => `/images/image${i + 1}.png`);
-
-		// Shuffle array and pick the first 10
-		const shuffled = allImages.sort(() => 0.5 - Math.random());
-		const selectedImages = shuffled.slice(0, 10);
-
-		preloadImages(selectedImages);
-
-		return selectedImages;
-	};
 
 	// Initialize or reset the game
 	useEffect(() => {
+		const shuffleImages = () => {
+			const allImages = Array.from({ length: 11 }, (_, i) => `/images/image${i + 1}.png`);
+
+			// Shuffle array and pick the first 10
+			const shuffled = allImages.sort(() => 0.5 - Math.random());
+			const selectedImages = shuffled.slice(0, 10);
+
+			preloadImages(selectedImages);
+
+			return selectedImages;
+		};
+
 		const initializeCards = () => {
 			const selectedImages = shuffleImages();
 			const initializedCards = selectedImages
